@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+    <script src="javascripts/app.js"></script>
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <meta charset="utf-8">
+    <title>IP Color</title>
+
+    <style>
+        #dank, #spank {
+            text-align: center;
+        }
+
+        #wow {
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+
+    <div id='app' ng-app='app' ng-controller='mainCtrl'>
+        <h1 id='dank'>IPs Colorized</h1>
+        <div id='spank'> 
+            <h3>Get a view and see what your IP address looks like in color.</h3>
+            <h3>Don't worry... This isn't your machine's IP.</h3>
+            <h3>The format is</h3>
+            <h3 style="color: red">Red: 0-255</h3>
+            <h3 style="color: green">Green: 0-255</h3>
+            <h3 style="color: blue">Blue: 0-255</h3>
+            <h3 style="opacity: 0.5">Opacity: (0-255)/255</h3>
+        </div>
+        <ul ng-if='ips.length' class='list center stretch' id="wow">
+            <li ng-repeat='p in ips' class='pokemon'>
+                <h1 style="background-color: rgba({{p.red}},{{p.green}},{{p.blue}},{{p.opacity}})">
+                    {{p.message}}<br>
+                    {{p.red}}<br>
+                    {{p.green}}<br>
+                    {{p.blue}}<br>
+                    {{p.last}}</h1>
+
+            </li>
+        </ul>
+
+    </div>
+
+</body>
+</html>
